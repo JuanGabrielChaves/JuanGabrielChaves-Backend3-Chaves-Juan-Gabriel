@@ -12,11 +12,13 @@ import usersRouter from "./routes/users.router.js";
 import petsRouter from "./routes/pets.router.js";
 import adoptionsRouter from "./routes/adoption.router.js";
 import sessionsRouter from "./routes/sessions.router.js";
+import config from "./config/config.js";
 
 const app = express();
-const PORT = process.env.PORT || 8080;
+const PORT = config.app.PORT;
+const CONNECTION_STRING = config.mongo.URL;
 
-mongoose.connect(`mongodb+srv://achavsjg:inicio123@cluster1.xtptm.mongodb.net/backend3?retryWrites=true&w=majority&appName=Cluster1`);
+mongoose.connect(CONNECTION_STRING);
 
 app.use(express.json());
 app.use(cookieParser());
