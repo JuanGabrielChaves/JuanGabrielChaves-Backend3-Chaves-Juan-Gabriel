@@ -2,9 +2,10 @@
 
 import supertest from "supertest";
 import chai from "chai";
-
+import config from "../src/config/config.js";
+const PORT = config.app.PORT || 8080;
 const expect = chai.expect;
-const requester = supertest("http://localhost:8080");
+const requester = supertest(`http://localhost:${PORT}`);
 
 describe("Testing de la App Web Adoptame", () => {
     describe("Testing de Mascotas", () => {
